@@ -1,0 +1,32 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>moe.syndev.synx</id>
+
+    <name>Synx</name>
+    <vendor url="https://syndev.moe/" email="syn@syndev.moe">SynDev</vendor>
+    <depends>com.intellij.modules.lsp</depends>
+    <version>2026.3109.0</version>
+    <idea-version since-build="253"/>
+
+    <description>Plugin for the Synx configuration language - Hybrid of TOML and JSON designed to be clean, intuitive, and painless to write.</description>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType name="Synx File" language="Synx" extensions="synx" fieldName="INSTANCE" implementationClass="moe.syndev.SynxFileType"/>
+
+        <lang.syntaxHighlighterFactory
+                language="Synx"
+                implementationClass="moe.syndev.SynxSyntaxHighlighterFactory"/>
+
+        <lang.braceMatcher
+                language="Synx"
+                implementationClass="moe.syndev.SynxBraceMatcher"/>
+
+        <quoteHandler
+                fileType="Synx File"
+                className="moe.syndev.SynxQuoteHandler"/>
+
+        <typedHandler implementation="moe.syndev.SynxTypedHandler"/>
+
+    </extensions>
+    
+</idea-plugin>
